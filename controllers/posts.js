@@ -1,6 +1,6 @@
 const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
-const Comment = require("../models/Comment");
+// const Comment = require("../models/Comment");
 const Amount = require("../models/Amount");
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
   getPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
-      const comments = await Comment.find({ post: req.params.id }).sort({ createdAt: "asc" }).populate('user').lean();
+      // const comments = await Comment.find({ post: req.params.id }).sort({ createdAt: "asc" }).populate('user').lean();
       const amounts = await Amount.find({ post: req.params.id }).sort({ createdAt: "desc" }).populate('user').lean();
       let arrAmount = []
       for (let i = 0; i < amounts.length; i++) {
@@ -31,7 +31,7 @@ module.exports = {
       }
       let totalAmount = arrAmount.reduce((acc, c) => acc + c, 0)
       console.log(totalAmount)
-      res.render("post.ejs", { post: post, user: req.user, comments: comments, amounts: amounts, totalAmount: totalAmount });
+      res.render("post.ejs", { post: post, user: req.user, amounts: amounts, totalAmount: totalAmount });
     } catch (err) {
       console.log(err);
     }
