@@ -1,7 +1,7 @@
 <%- include('partials/header') -%>
   <div class="container">
     <div class="row justify-content-center mt-5">
-      <div class="col-6">
+      <div class="col-4">
         <h2>
           <%= post.title %>
         </h2>
@@ -24,17 +24,17 @@
           <%= post.caption %>
         </p>
       </div>
-      <div class="mt-5">
+      <div class="col-6 mt-5">
         <h2>Add Amount</h2>
         <form action="/amount/createAmount/<%=post._id%>" method="POST">
           <div class="form-group">
             <label for="amount" class="form-label">Amount</label>
             <input type="number" class="form-control " id="amount" name="amount">
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary mt-1">Submit</button>
           <ul>
             <% for(var i=0; i<amounts.length; i++) {%>
-              <li class="col-6 justify-content-between mt-5 list-group">
+              <li class="justify-content-between mt-1 list-group">
                 <!--Add user attribution-->
                 <span class="list-group-item">
                   <%= amounts[i].amount%> contributed
@@ -49,13 +49,17 @@
                       <%}%>
               </li>
               <% } %>
-                <li><span>Total Amount Contributed <%= totalAmount%>
+                <li class="list-group-item list-group-item-primary mt-1"><span>Total Amount Contributed <%=
+                      totalAmount%>
                 </li>
           </ul>
         </form>
       </div>
 
-      <div class="col-6 mt-5">
+
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-6 mt-3 ml-2">
         <a class="btn btn-primary" href="/profile">Return to Profile</a>
         <a class="btn btn-primary" href="/feed">Return to Members</a>
       </div>

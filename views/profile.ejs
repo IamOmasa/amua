@@ -1,9 +1,14 @@
 <%- include('partials/header') -%>
   <div class="container">
+
     <div class="row mt-5">
+      <div class="col-3 d-flex flex-column bd-highlight mb-3">
+        <a class="p-2 bd-highlight" href="/profile">Home</a>
+        <a class="p-2 bd-highlight" href="#">About</a>
+        <a class="p-2 bd-highlight" href="/feed">Team</a>
+      </div>
       <div class="col-6">
         <div>
-          <h1 class="h1">Dashboard</h1>
           <p><strong>User Name</strong>: <%= user.userName %>
           </p>
           <p><strong>Email</strong>: <%= user.email %>
@@ -15,13 +20,13 @@
           <form action="/post/createPost" enctype="multipart/form-data" method="POST">
             <div class="mb-3">
               <label for="title" class="form-label">Name</label>
-              <input type="text" class="form-control" id="title" name="title">
+              <input type="text" class="form-control" id="title" name="title" required>
             </div>
 
             <div class="mb-3">
-              <label for="caption" class="form-label">occupation</label>
+              <label for="caption" class="form-label">E-mail</label>
 
-              <input type="text" class="form-control" id="caption" name="caption">
+              <input type="email" class="form-control" id="caption" name="caption" required>
             </div>
 
             <div class="mb-3">
@@ -32,7 +37,7 @@
           </form>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-3">
         <ul class="row list-unstyled">
           <% for(var i=0; i<posts.length; i++) {%>
             <li class="col-6 justify-content-between mt-5">
