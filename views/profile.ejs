@@ -2,10 +2,20 @@
   <div class="container">
 
     <div class="row mt-5">
-      <div class="col-3 d-flex flex-column bd-highlight mb-3">
+      <!-- <div class="col-3 d-flex flex-column bd-highlight mb-3">
         <a class="p-2 bd-highlight" href="/profile">Home</a>
         <a class="p-2 bd-highlight" href="#">About</a>
         <a class="p-2 bd-highlight" href="/feed">Team</a>
+      </div> -->
+      <div class="col-3">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="/profile" role="tab"
+            aria-controls="v-pills-home" aria-selected="true">Home</a>
+          <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="/profile" role="tab"
+            aria-controls="v-pills-profile" aria-selected="false">About</a>
+          <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="/feed" role="tab"
+            aria-controls="v-pills-messages" aria-selected="false">Team</a>
+        </div>
       </div>
       <div class="col-6">
         <div>
@@ -24,9 +34,14 @@
             </div>
 
             <div class="mb-3">
-              <label for="caption" class="form-label">E-mail</label>
+              <label for="email" class="form-label">E-mail</label>
 
-              <input type="email" class="form-control" id="caption" name="caption" required>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="caption" class="form-label">Caption</label>
+
+              <input type="text" class="form-control" id="caption" name="caption" required>
             </div>
 
             <div class="mb-3">
