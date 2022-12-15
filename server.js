@@ -67,7 +67,8 @@ app.use("/amount", amountRoutes)
 
 //Connect to the database before listening
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || `0.0.0.0:$PORT`, () => {
   console.log("Server is running, you better catch it!");
 });
+
 
