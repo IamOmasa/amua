@@ -1,6 +1,5 @@
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-const roles = require("../config/roles")
 
 const UserSchema = new mongoose.Schema({
   userName: {
@@ -12,10 +11,6 @@ const UserSchema = new mongoose.Schema({
     unique: true
   },
   password: String,
-  role: {
-    type: String,
-    ref: "ROLES"
-  }
 });
 
 // Password hash middleware.

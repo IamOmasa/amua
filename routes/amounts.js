@@ -5,7 +5,7 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //amounts Routes - simplified for now
 
-router.post("/createAmount/:id", amountsController.createAmount);
+router.post("/createAmount/:id", ensureAuth, amountsController.createAmount);
 
 
 
