@@ -63,12 +63,10 @@ app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 // app.use("/comment", commentRoutes);
 app.use("/amount", amountRoutes)
-
-
-//Connect to the database before listening
-
-app.listen(process.env.PORT || `0.0.0.0:$PORT`, () => {
-  console.log("Server is running, you better catch it!");
-});
+app.set('PORT', (process.env.PORT))
+app.set('host', `0.0.0.0`)
+app.listen(process.env.PORT), () => {
+  console.log(`Server is running on 0.0.0.0:${process.env.PORT}, you better catch it!`)
+}
 
 
