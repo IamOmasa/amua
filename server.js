@@ -63,8 +63,8 @@ app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 // app.use("/comment", commentRoutes);
 app.use("/amount", amountRoutes)
-app.set('PORT', (process.env.PORT))
-app.set('host', `0.0.0.0`)
+// app.set('PORT', (process.env.PORT))
+// app.set('host', `0.0.0.0`)
 app.listen(process.env.PORT), () => {
   console.log(`Server is running on 0.0.0.0:${process.env.PORT}, you better catch it!`)
 }
