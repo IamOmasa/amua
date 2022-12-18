@@ -24,7 +24,7 @@ require("./config/passport")(passport);
 
 //Connect To Database
 connectDB().then(() => {
-  app.listen(PORT, () => {
+  app.listen(process.env.PORT, () => {
     console.log("listening for requests");
   })
 });
@@ -70,8 +70,8 @@ app.use("/post", postRoutes);
 app.use("/amount", amountRoutes)
 // app.set('PORT', (process.env.PORT))
 // app.set('host', `0.0.0.0`)
-app.listen(PORT), () => {
-  console.log(`Server is running on port 2121, you better catch it!`)
-}
+// app.listen(process.env.PORT), () => {
+//   console.log(`Server is running on port 2121, you better catch it!`)
+// }
 
 
