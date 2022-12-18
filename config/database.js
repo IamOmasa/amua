@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect("mongodb://localhost/grocery", {
+    const conn = await mongoose.connect(process.env.PORT, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,

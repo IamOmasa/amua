@@ -14,6 +14,7 @@ const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 // const commentRoutes = require("./routes/comments");
 const amountRoutes = require("./routes/amounts")
+const PORT = process.env.PORT || 2121
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -22,7 +23,11 @@ require("dotenv").config({ path: "./config/.env" });
 require("./config/passport")(passport);
 
 //Connect To Database
-connectDB();
+connectDB.then(() => {
+  app.listen(PORT, () => {
+    console.log("listening for requests");
+  })
+});
 
 //Using EJS for views
 app.set("view engine", "ejs");
@@ -65,8 +70,8 @@ app.use("/post", postRoutes);
 app.use("/amount", amountRoutes)
 // app.set('PORT', (process.env.PORT))
 // app.set('host', `0.0.0.0`)
-app.listen(process.env.PORT), () => {
-  console.log(`Server is running on 0.0.0.0:${process.env.PORT}, you better catch it!`)
+app.listen(PORT), () => {
+  console.log(`Server is running on port 2121, you better catch it!`)
 }
 
 
