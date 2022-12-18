@@ -23,7 +23,7 @@ require("dotenv").config({ path: "./config/.env" });
 require("./config/passport")(passport);
 
 //Connect To Database
-connectDB.then(() => {
+connectDB().then(() => {
   app.listen(PORT, () => {
     console.log("listening for requests");
   })
