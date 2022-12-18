@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-// const dotenv = require("dotenv")
-require("dotenv").config({ path: "./config/.env" });
+const dotenv = require("dotenv")
+require("dotenv").config({ path: __dirname + "/.env" });
 
 const connectDB = async () => {
   try {
@@ -18,4 +18,4 @@ const connectDB = async () => {
   }
 };
 
-module.exports = connectDB;
+module.exports = connectDB; 
