@@ -16,12 +16,15 @@ const postRoutes = require("./routes/posts");
 const amountRoutes = require("./routes/amounts")
 const dotenv = require("dotenv")
 
-//Use .env file in config folder
-require("dotenv").config({ path: "./config/.env" });
-
 // Passport config
 require("./config/passport")(passport);
 
+//Use .env file in config folder
+require("dotenv").config({ path: "./config/.env" });
+
+
+//Database connection
+require("./config/database")
 //Connect To Database
 connectDB().then(() => {
   app.listen(process.env.PORT, () => {
